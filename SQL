@@ -1,0 +1,37 @@
+create database proyecto;
+use proyecto;
+
+create table estudiantes(
+idEstudiante int primary key,
+nombreEstudiante varchar(20),
+apellidoEstudiante varchar(20)
+);
+
+create table profesores(
+idProfesor int primary key,
+nombreProfesor varchar(20),
+apellidoProfesor varchar(20)
+);
+
+create table cursos (
+idCurso int primary key,
+nombreCurso varchar(20)
+);
+
+create table notas(
+idNota int primary key,
+calificacion varchar(10),
+idEstudiante int,
+idProfesor int,
+idCurso int,
+foreign key(idEstudiante) references estudiantes (idEstudiante),
+foreign key(idProfesor) references profesores (idProfesor),
+foreign key(idCurso) references cursos (idCurso)
+);
+
+/*inserciones de datos para prueba*/
+
+insert into estudiantes(idEstudiante,nombreEstudiante, apellidoEstudiante) values(1012377924, 'Felipe', 'Martinez');
+
+/*prueba para evidenciar la insercion*/ 
+select * from estudiantes
